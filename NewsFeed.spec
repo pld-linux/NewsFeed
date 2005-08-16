@@ -13,6 +13,7 @@ Source2:	%{lname}.png
 BuildRequires:	rpmbuild(macros) >= 1.231
 BuildRequires:	rpm-pythonprov
 Requires:	python-tkinter >= 2.3
+%pyrequires_eq	python-modules
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -24,15 +25,16 @@ A reader and aggregator for RSS/RDF/Atom feeds in Python/Tk
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
 python ./setup.py install \
+	--optimize=2 \
 	--root=$RPM_BUILD_ROOT
 
-%{py_ocomp} $RPM_BUILD_ROOT%{py_sitescriptdir}/%{name}
-%{py_postclean}
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/%{lname}.desktop
+install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/%{lname}.png
 
-install -D %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/%{lname}.desktop
-install -D %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/%{lname}.png
+%py_postclean
 
 %clean
 rm -rf $RPM_BUILD_ROOT
