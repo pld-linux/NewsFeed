@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=NewsFeed
+Comment=A reader and aggregator for RSS/RDF/Atom feeds
+Exec=newsfeed
+Icon=newsfeed.png
+Type=Application
+Terminal=false
+Categories=Network;News;
+Encoding=UTF-8
+# vi: encoding=utf-8
