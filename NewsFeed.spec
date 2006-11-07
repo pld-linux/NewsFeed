@@ -48,5 +48,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc README.html
 %attr(755,root,root) %{_bindir}/*
 %{py_sitescriptdir}/*.py[co]
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
