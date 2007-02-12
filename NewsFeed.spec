@@ -1,7 +1,7 @@
 %include	/usr/lib/rpm/macros.python
 %define		lname	newsfeed
 Summary:	A reader and aggregator for RSS/RDF/Atom feeds in Python/Tk
-Summary(pl):	Czytnik i agregator dla potoków RSS/RDF/Atom w Pythonie-Tk
+Summary(pl.UTF-8):   Czytnik i agregator dla potokÃ³w RSS/RDF/Atom w Pythonie-Tk
 Name:		NewsFeed
 Version:	2.5
 Release:	0.1
@@ -21,8 +21,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 A reader and aggregator for RSS/RDF/Atom feeds in Python/Tk
 
-%description -l pl
-Czytnik i agregator dla potoków RSS/RDF/Atom w Pythonie-Tk.
+%description -l pl.UTF-8
+Czytnik i agregator dla potokÃ³w RSS/RDF/Atom w Pythonie-Tk.
 
 %prep
 %setup -q
