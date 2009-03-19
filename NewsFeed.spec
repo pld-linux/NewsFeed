@@ -3,12 +3,12 @@
 Summary:	A reader and aggregator for RSS/RDF/Atom feeds in Python/Tk
 Summary(pl.UTF-8):	Czytnik i agregator dla potoków RSS/RDF/Atom w Pythonie-Tk
 Name:		NewsFeed
-Version:	2.9
+Version:	2.11
 Release:	0.1
 License:	GPL
 Group:		Applications
 Source0:	http://home.arcor.de/mdoege/newsfeed/%{name}-%{version}.tar.gz
-# Source0-md5:	9818111d8bfcb1d3e1c1d1b4bf3a0ba8
+# Source0-md5:	49bbd9e5798f734f91992d017233b3a2
 Source1:	%{lname}.desktop
 Source2:	%{lname}.png
 BuildRequires:	rpmbuild(macros) >= 1.231
@@ -26,17 +26,21 @@ Czytnik i agregator dla potoków RSS/RDF/Atom w Pythonie-Tk.
 
 %prep
 %setup -q
+# fix sounds path
+%{__sed} -i -e 's,/usr/X11R6/share/gnome,%{_datadir}/NewsFeed,g' newsfeed.py
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
+install -d $RPM_BUILD_ROOT{%{_datadir}/NewsFeed/sounds,%{_desktopdir},%{_pixmapsdir}}
 
-python ./setup.py install \
+%{__python} setup.py install \
 	--optimize=2 \
 	--root=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/%{lname}.desktop
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/%{lname}.png
+cp -f email.wav $RPM_BUILD_ROOT%{_datadir}/NewsFeed/sounds
+rm -fr $RPM_BUILD_ROOT/usr/sounds
 
 %py_postclean
 
@@ -47,6 +51,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.html
 %attr(755,root,root) %{_bindir}/*
+%dir %{_datadir}/NewsFeed
+%dir %{_datadir}/NewsFeed/sounds
 %{py_sitescriptdir}/*.py[co]
+%{py_sitescriptdir}/NewsFeed-%{version}-*.egg-info
+%{_datadir}/NewsFeed/sounds/email.wav
 %{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
