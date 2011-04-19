@@ -3,12 +3,12 @@
 Summary:	A reader and aggregator for RSS/RDF/Atom feeds in Python/Tk
 Summary(pl.UTF-8):	Czytnik i agregator dla potoków RSS/RDF/Atom w Pythonie-Tk
 Name:		NewsFeed
-Version:	2.11
+Version:	2.14
 Release:	0.1
 License:	GPL
 Group:		Applications
 Source0:	http://home.arcor.de/mdoege/newsfeed/%{name}-%{version}.tar.gz
-# Source0-md5:	49bbd9e5798f734f91992d017233b3a2
+# Source0-md5:	f89f78e7586569455c3c74e14578b859
 Source1:	%{lname}.desktop
 Source2:	%{lname}.png
 BuildRequires:	rpmbuild(macros) >= 1.231
