@@ -33,9 +33,7 @@ Czytnik i agregator dla potoków RSS/RDF/Atom w Pythonie-Tk.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_datadir}/NewsFeed/sounds,%{_desktopdir},%{_pixmapsdir}}
 
-%{__python} setup.py install \
-	--optimize=2 \
-	--root=$RPM_BUILD_ROOT
+%py_install
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/%{lname}.desktop
 install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/%{lname}.png
