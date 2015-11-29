@@ -11,7 +11,7 @@ Source0:	http://home.arcor.de/mdoege/newsfeed/%{name}-%{version}.tar.gz
 # Source0-md5:	f89f78e7586569455c3c74e14578b859
 Source1:	%{lname}.desktop
 Source2:	%{lname}.png
-BuildRequires:	rpmbuild(macros) >= 1.231
+BuildRequires:	rpmbuild(macros) >= 1.710
 BuildRequires:	rpm-pythonprov
 Requires:	python-tkinter >= 2.3
 %pyrequires_eq	python-modules
