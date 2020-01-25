@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.python
 %define		lname	newsfeed
 Summary:	A reader and aggregator for RSS/RDF/Atom feeds in Python/Tk
 Summary(pl.UTF-8):	Czytnik i agregator dla potoków RSS/RDF/Atom w Pythonie-Tk
